@@ -19,7 +19,7 @@ import { configValidationSchema } from './config.schema';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        const isProduction = configService.get('NODE_ENV') === 'prod';
+        const isProduction = configService.get('STAGE') === 'prod';
         
         return {
           ssl: isProduction,
